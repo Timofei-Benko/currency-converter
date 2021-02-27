@@ -90,8 +90,8 @@ function App() {
                 </Button>
 
                 <OutputBox
-                    currencyData={ currencyData }
                     convertedAmount={ convertedAmount }
+                    toCurrency={ toCurrency }
                 />
             </div>
         </div>
