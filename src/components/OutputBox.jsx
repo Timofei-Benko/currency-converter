@@ -9,7 +9,7 @@ function OutputBox(props) {
     return (
         <div>
             <div className={'output-box'}>
-                <span className={'output-text'}>{ convertedAmount }</span>
+                <span className={'output-text'}>{ convertedAmount } BYN</span>
             </div>
         </div>
     )
