@@ -14,7 +14,6 @@ function App() {
     let [amount, setAmount] = useState(0);
     let [convertedAmount, setConvertedAmount] = useState(0);
 
-
     useEffect(() => {
 
         if (localStorage.getItem('currency')) {
