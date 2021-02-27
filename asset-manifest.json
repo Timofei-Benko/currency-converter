@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/Timofei-Benko/currency-converter/static/css/main.2f67130d.chunk.css",
-    "main.js": "/Timofei-Benko/currency-converter/static/js/main.a6497b1e.chunk.js",
-    "main.js.map": "/Timofei-Benko/currency-converter/static/js/main.a6497b1e.chunk.js.map",
+    "main.css": "/Timofei-Benko/currency-converter/static/css/main.5a5e4d9c.chunk.css",
+    "main.js": "/Timofei-Benko/currency-converter/static/js/main.d01c7467.chunk.js",
+    "main.js.map": "/Timofei-Benko/currency-converter/static/js/main.d01c7467.chunk.js.map",
     "runtime-main.js": "/Timofei-Benko/currency-converter/static/js/runtime-main.69b74a62.js",
     "runtime-main.js.map": "/Timofei-Benko/currency-converter/static/js/runtime-main.69b74a62.js.map",
     "static/js/2.87cb5049.chunk.js": "/Timofei-Benko/currency-converter/static/js/2.87cb5049.chunk.js",
     "static/js/2.87cb5049.chunk.js.map": "/Timofei-Benko/currency-converter/static/js/2.87cb5049.chunk.js.map",
     "index.html": "/Timofei-Benko/currency-converter/index.html",
-    "static/css/main.2f67130d.chunk.css.map": "/Timofei-Benko/currency-converter/static/css/main.2f67130d.chunk.css.map",
+    "static/css/main.5a5e4d9c.chunk.css.map": "/Timofei-Benko/currency-converter/static/css/main.5a5e4d9c.chunk.css.map",
     "static/js/2.87cb5049.chunk.js.LICENSE.txt": "/Timofei-Benko/currency-converter/static/js/2.87cb5049.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.69b74a62.js",
     "static/js/2.87cb5049.chunk.js",
-    "static/css/main.2f67130d.chunk.css",
-    "static/js/main.a6497b1e.chunk.js"
+    "static/css/main.5a5e4d9c.chunk.css",
+    "static/js/main.d01c7467.chunk.js"
   ]
 }
