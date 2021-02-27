@@ -16,10 +16,11 @@ input[type=number] {
     -moz-appearance: textfield;
 }
 
-.from-currency {
+.select {
     margin-top: 15px;
 }
 
-.select {
+.to {
     margin-top: 15px;
+    font-size: 1.5rem;
 }

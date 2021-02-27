@@ -12,14 +12,15 @@ function InputBox(props) {
         <div>
             <div className={'input-box'}>
                 <TextField id="filled-basic"
-                           label="Amount to convert"
+                           label="BYN"
                            color="primary"
                            size="medium"
                            type="text"
                            onChange={ handleAmountChange }
                 />
+                <span className={ 'to' }>→</span>
                 <Select
-                    className="select"
+                    className={ 'select' }
                     labelId="demo-simple-select-label"
                     id="demo-simple-select"
                     defaultValue={'USD'}
