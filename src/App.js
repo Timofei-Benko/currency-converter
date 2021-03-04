@@ -30,7 +30,13 @@ function App() {
     }, []);
 
     function filterData() {
-        let data = JSON.parse(localStorage.getItem('currency'))
+        let data
+        if (JSON.parse(localStorage.getItem('currency'))) {
+            data = JSON.parse(localStorage.getItem('currency'))
+        } else {
+            return
+        }
+
         let filteredData = []
 
         data.forEach((curr) => {

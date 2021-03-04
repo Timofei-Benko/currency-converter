@@ -26,10 +26,12 @@ function InputBox(props) {
                     defaultValue={'USD'}
                     onChange={ handleCurrencyChange }
                 >
-                    {
+                    {currencyData && currencyData.length !== 0 ?
                         currencyData.map(curr => (
                             <MenuItem key={curr.code} value={curr.code}>{curr.code}</MenuItem>
                         ))
+                        :
+                        null
                     }
                 </Select>
             </div>
