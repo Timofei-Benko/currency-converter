@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import moment from 'moment'
-import { Button } from '@material-ui/core';
+import moment from 'moment';
+
 import './App.css';
+
 import InputBox from "./components/InputBox";
 import OutputBox from "./components/OutputBox";
 
@@ -11,7 +12,7 @@ function App() {
 
     let [currencyData, setCurrencyData] = useState([]);
     let [toCurrency, setToCurrency] = useState('USD');
-    let [amount, setAmount] = useState(0);
+    let [amount, setAmount] = useState('');
     let [convertedAmount, setConvertedAmount] = useState(0);
 
     useEffect(() => {
@@ -45,6 +46,7 @@ function App() {
                 curr.Cur_Abbreviation === 'EUR'
                 ||
                 curr.Cur_Abbreviation === 'RUB') {
+
                 let { Cur_Abbreviation, Cur_OfficialRate, Cur_Scale } = curr
 
                 filteredData.push(
@@ -56,7 +58,6 @@ function App() {
                 )
             }
         })
-        console.log(filteredData)
         return filteredData
     }
 
@@ -64,37 +65,31 @@ function App() {
         setCurrencyData(filterData())
     }, [])
 
-    const handleCurrencyChange = e => {
-        setToCurrency(e.target.value)
+    const handleCurrencyChange = val => {
+        setToCurrency(val)
+        setAmount('')
         setConvertedAmount(0)
     }
 
-    const handleAmountChange = e => setAmount(+e.target.value)
-
-    function convert() {
+    function convert(amountToConvert = amount) {
         let curr = currencyData.find(curr => curr.code === toCurrency)
-        const convertedAmount = (amount * curr.rate * curr.scale).toFixed(2)
+        const convertedAmount = (amountToConvert * curr.scale * curr.rate).toFixed(2)
         setConvertedAmount(+convertedAmount)
     }
 
     return (
         <div className="wrap">
-            <h1>Currency Converter</h1>
+            <h1 style={{color: '#877e87'}}>Currency Converter</h1>
             <div className="App">
                 <InputBox
                     class={'upper'}
                     currencyData={ currencyData }
+                    setToCurrency={ setToCurrency }
+                    amount={amount}
+                    setAmount={setAmount}
                     handleCurrencyChange={ handleCurrencyChange }
-                    handleAmountChange={ e => handleAmountChange(e) }
+                    convert={ convert }
                 />
-
-                <Button
-                    className="btn"
-                    variant="contained"
-                    onClick={ convert }
-                >Convert
-                </Button>
-
                 <OutputBox
                     convertedAmount={ convertedAmount }
                     toCurrency={ toCurrency }
