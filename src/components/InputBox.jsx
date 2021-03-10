@@ -1,34 +1,63 @@
-import './InputBox.css';
 import { TextField, Select, MenuItem } from '@material-ui/core';
 
 function InputBox(props) {
     const {
         currencyData,
-        handleAmountChange,
+        convert,
         handleCurrencyChange,
+        amount,
+        setAmount
     } = props;
+
+    const inputBoxStyles = {
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        borderTopLeftRadius: '10px',
+        borderTopRightRadius: '10px',
+        width: '100%',
+        overflow: 'scroll',
+    };
+
+    const arrowStyles = {
+        marginTop: '15px',
+        fontSize: '1.5rem',
+    };
+
+    const selectStyles = {
+        marginTop: '15px',
+    };
 
     return (
         <div>
-            <div className={'input-box'}>
+            <div style={inputBoxStyles}>
                 <TextField id="filled-basic"
                            label="BYN"
                            color="primary"
                            size="medium"
                            type="text"
-                           onChange={ handleAmountChange }
+                           value={amount}
+                           onChange={ e => {
+                               setAmount(+e.target.value)
+                               convert(+e.target.value)
+                           } }
                 />
-                <span className={ 'to' }>→</span>
+                <span style={arrowStyles}>→</span>
                 <Select
-                    className={ 'select' }
-                    labelId="demo-simple-select-label"
-                    id="demo-simple-select"
+                    style={selectStyles}
                     defaultValue={'USD'}
-                    onChange={ handleCurrencyChange }
+                    onChange={ e => {
+                            handleCurrencyChange(e.target.value)
+                        }
+                    }
                 >
                     {currencyData && currencyData.length !== 0 ?
                         currencyData.map(curr => (
-                            <MenuItem key={curr.code} value={curr.code}>{curr.code}</MenuItem>
+                            <MenuItem
+                                key={curr.code}
+                                value={curr.code}
+                            >{curr.code}
+                            </MenuItem>
                         ))
                         :
                         null
@@ -39,4 +68,4 @@ function InputBox(props) {
     )
 }
 
-export default InputBox
+export default InputBox;
