@@ -73,7 +73,7 @@ function App() {
 
     function convert(amountToConvert = amount) {
         let curr = currencyData.find(curr => curr.code === toCurrency)
-        const convertedAmount = (amountToConvert * curr.scale * curr.rate).toFixed(2)
+        const convertedAmount = (amountToConvert * curr.scale / curr.rate).toFixed(2)
         setConvertedAmount(+convertedAmount)
     }
 
