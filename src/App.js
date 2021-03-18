@@ -82,9 +82,7 @@ function App() {
             <h1 style={{color: '#877e87'}}>Currency Converter</h1>
             <div className="App">
                 <InputBox
-                    class={'upper'}
                     currencyData={ currencyData }
-                    setToCurrency={ setToCurrency }
                     amount={amount}
                     setAmount={setAmount}
                     handleCurrencyChange={ handleCurrencyChange }
