@@ -15,17 +15,15 @@ function App() {
     let [amount, setAmount] = useState('');
     let [convertedAmount, setConvertedAmount] = useState(0);
 
-    // useEffect(() => {
-    //
-    //     if (localStorage.getItem('currency')) {
-    //         const currentDate = new Date(Date.now())
-    //
-    //         if (moment().isBefore(currentDate, 'day') === false) {
-    //             getCompleteCurrData();
-    //         }
-    //     }
-    // }, []);
+    useEffect(() => {
+        if (localStorage.getItem('currency')) {
+            const currentDate = new Date(Date.now())
 
+            if (moment().isBefore(currentDate, 'day') === false) {
+                getCompleteCurrData();
+            }
+        }
+    }, []);
 
     useEffect(() => {
         if (localStorage.getItem('currency')) {
@@ -33,8 +31,7 @@ function App() {
         } else {
             getCompleteCurrData();
         }
-    }, [])
-
+    }, []);
 
     const data = useRef();
     data.current = currencyData;
@@ -46,7 +43,7 @@ function App() {
         setCurrencyData(data)
     }
 
-    const handleCurrencyChange = val => {
+    const handleCurrencyChange = (val) => {
         setToCurrency(val)
         setAmount('')
         setConvertedAmount(0)
