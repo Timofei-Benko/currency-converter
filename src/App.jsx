@@ -50,7 +50,7 @@ function App() {
     };
 
     function convert(amountToConvert = amount) {
-        let curr = data.find(curr => curr.Cur_Abbreviation === toCurrency)
+        let curr = data.current.find(curr => curr.Cur_Abbreviation === toCurrency)
         const convertedAmount = (amountToConvert * curr.Cur_Scale / curr.Cur_OfficialRate).toFixed(2)
         setConvertedAmount(+convertedAmount)
     }
