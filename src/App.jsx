@@ -21,25 +21,29 @@ function App() {
     //         const currentDate = new Date(Date.now())
     //
     //         if (moment().isBefore(currentDate, 'day') === false) {
-    //             setCurrencyData(getCompleteCurrData());
+    //             getCompleteCurrData();
     //         }
     //     }
     // }, []);
 
+
     useEffect(() => {
-        getCompleteCurrData();
-    }, []);
+        if (localStorage.getItem('currency')) {
+            setCurrencyData(JSON.parse(localStorage.getItem('currency')))
+        } else {
+            getCompleteCurrData();
+        }
+    }, [])
+
 
     const data = useRef();
     data.current = currencyData;
 
-    console.log(data)
-
     async function getCompleteCurrData() {
         const response = await fetch(URL);
         const data = await response.json();
+        localStorage.setItem('currency', JSON.stringify(data))
         setCurrencyData(data)
-        localStorage.setItem('currency', JSON.stringify(data));
     }
 
     const handleCurrencyChange = val => {
