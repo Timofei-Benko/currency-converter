@@ -2,7 +2,7 @@ import { TextField, Select, MenuItem } from '@material-ui/core';
 
 function InputBox(props) {
     const {
-        currencyData,
+        data,
         convert,
         handleCurrencyChange,
         amount,
@@ -51,16 +51,13 @@ function InputBox(props) {
                         }
                     }
                 >
-                    {currencyData && currencyData.length !== 0 ?
-                        currencyData.map(curr => (
+                    {data.current && data.current.map((curr, i) => (
                             <MenuItem
-                                key={curr.code}
-                                value={curr.code}
-                            >{curr.code}
+                                key={`${new Date().getTime()}-${i}` }
+                                value={curr.Cur_Abbreviation}
+                            >{curr.Cur_Abbreviation}
                             </MenuItem>
                         ))
-                        :
-                        null
                     }
                 </Select>
             </div>
