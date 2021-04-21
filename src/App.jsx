@@ -16,10 +16,15 @@ function App() {
     let [convertedAmount, setConvertedAmount] = useState(0);
 
     useEffect(() => {
-        if (localStorage.getItem('currency')) {
-            const currentDate = new Date(Date.now())
+        if (localStorage.getItem('currency') && !localStorage.getItem('date')) {
+            localStorage.setItem('date', JSON.stringify(new Date(Date.now())));
+        }
 
-            if (moment().isBefore(currentDate, 'day') === false) {
+        if (localStorage.getItem('date')) {
+
+            let LSUpdateDate = JSON.parse(localStorage.getItem('date'));
+
+            if (moment().isBefore(LSUpdateDate, 'day') === false) {
                 getCompleteCurrData();
             }
         }
@@ -39,6 +44,7 @@ function App() {
     async function getCompleteCurrData() {
         const response = await fetch(URL);
         const data = await response.json();
+
         localStorage.setItem('currency', JSON.stringify(data))
         setCurrencyData(data)
     }
