@@ -26,6 +26,7 @@ function App() {
 
             if (moment().isBefore(LSUpdateDate, 'day') === false) {
                 getCompleteCurrData();
+                localStorage.setItem('date', JSON.stringify(new Date(Date.now())));
             }
         }
     }, []);
