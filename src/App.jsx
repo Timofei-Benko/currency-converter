@@ -16,11 +16,11 @@ function App() {
     let [convertedAmount, setConvertedAmount] = useState(0);
 
     useEffect(() => {
-        if (localStorage.getItem('currency') && !localStorage.getItem('date')) {
+        if (!localStorage.getItem('date')) {
             localStorage.setItem('date', JSON.stringify(new Date(Date.now())));
         }
 
-        if (localStorage.getItem('date')) {
+        if (localStorage.getItem('currency') && localStorage.getItem('date')) {
 
             let LSUpdateDate = JSON.parse(localStorage.getItem('date'));
 
